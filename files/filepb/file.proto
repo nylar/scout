@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package filepb;
+
+message File {
+    string Filename = 1;
+}
+
+message FileRequest {
+    string directory = 1;
+    repeated File files = 2;
+}
+
+message FileResponse {
+}
+
+service FileService {
+    rpc Sync(FileRequest) returns (FileResponse) {}
+}

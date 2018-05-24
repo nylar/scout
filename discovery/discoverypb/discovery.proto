@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package discoverypb;
+
+message RegisterRequest {
+    string directory = 1;
+    string address = 2;
+}
+
+message RegisterResponse {}
+
+message DeregisterRequest {
+    string directory = 1;
+}
+
+message DeregisterResponse {}
+
+service DiscoveryService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
+    rpc Deregister(DeregisterRequest) returns (DeregisterResponse) {}
+}
